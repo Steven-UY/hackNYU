@@ -14,6 +14,13 @@ def video() -> str:
     description = data['description']
     video_id = data['video_id']
 
+    text_content = f"{title} {description}"
+    sentiment = analyze_sentiment(text_content)
+
+    return jsonify({"sentiment": sentiment, "video_id": video_id})
+
+app.run(debug=True, port=5000)
+
 
 
 
